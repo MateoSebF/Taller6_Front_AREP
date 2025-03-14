@@ -1,0 +1,34 @@
+.hidden {
+    display: none !important;
+}
+#error-message,
+#exit-message {
+    display: block;
+    position: fixed;  /* Fixed ensures it stays centered even when scrolling */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px; /* Added padding for better visibility */
+    max-width: 80%; /* Prevents message from being too wide */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em; /* Slightly larger text */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+/* Error message styling */
+#error-message {
+    background: #ffcccc;
+    color: #d8000c;
+    border: 2px solid #d8000c;
+    border-radius: 8px;
+}
+
+/* Success message styling */
+#exit-message {
+    background: #ccffd7;
+    color: #12d800;
+    border: 2px solid #44d800;
+    border-radius: 8px;
+}

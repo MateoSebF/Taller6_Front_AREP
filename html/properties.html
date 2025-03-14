@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="container py-4 position-relative">
+
+    <!-- Error Notification -->
+    <div id="error-message" class="col-6 p-2 hidden"></div>
+    <div id="exit-message" class="col-6 p-2 hidden"></div>
+
+    <h1 class="text-center mb-4">Property Management System</h1>
+
+    <!-- Property Form -->
+    <div class="col-6 mx-auto card p-4 mb-4">
+        <h2 id="form-title" class="text-center mb-3">Add New Property</h2>
+        <input type="hidden" id="property-id">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="address" placeholder="Address" required>
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="price" placeholder="Price" required>
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="size" placeholder="Size (mt^2)" required>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="description" placeholder="Description"></textarea>
+        </div>
+        <button class="btn btn-primary w-100" onclick="submitProperty()">Save Property</button>
+    </div>
+
+    <!-- Search Filters -->
+    <div class="row g-2 mb-3">
+        <div class="col-md">
+            <input type="text" id="search-address" class="form-control" placeholder="Search by address">
+        </div>
+        <div class="col-md">
+            <input type="number" id="search-min-price" class="form-control" placeholder="Min Price">
+        </div>
+        <div class="col-md">
+            <input type="number" id="search-max-price" class="form-control" placeholder="Max Price">
+        </div>
+        <div class="col-md">
+            <input type="number" id="search-min-size" class="form-control" placeholder="Min Size">
+        </div>
+        <div class="col-md">
+            <input type="number" id="search-max-size" class="form-control" placeholder="Max Size">
+        </div>
+        <div class="col-md">
+            <button class="btn btn-primary w-100" onclick="fetchProperties()">Search</button>
+        </div>
+    </div>
+    
+
+    <!-- Property Listing -->
+    <h2 class="text-center">Property List</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Address</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="property-list"></tbody>
+        </table>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="d-flex justify-content-center mt-3">
+        <button id="prev-page" class="btn btn-secondary me-2" onclick="changePage(-1)">⬅️ Previous</button>
+        <button id="next-page" class="btn btn-secondary" onclick="changePage(1)">Next ➡️</button>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script_property.js"></script>
+</body>
+
+</html>
